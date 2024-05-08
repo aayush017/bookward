@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #555;
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome Admin!</h1>
+        
+        <!-- Option to view added books -->
+        <h2>Added Books</h2>
+        <form action="/admin/view-added-books" method="GET">
+            <button type="submit">View Added Books</button>
+        </form>
+        
+        <!-- Option to view all users -->
+        <h2>All Users</h2>
+        <form action="/admin/view-all-users" method="GET">
+            <button type="submit">View All Users</button>
+        </form>
+        
+        <!-- Option to view all books -->
+        <h2>All Books</h2>
+        <form action="/admin/view-all-books" method="GET">
+            <button type="submit">View All Books</button>
+        </form>
+        
+        <!-- Option to view all donated books -->
+        <h2>Donated Books</h2>
+        <form action="/admin/view-donated-books" method="GET">
+            <button type="submit">View Donated Books</button>
+        </form>
+    </div>
+</body>
+</html>

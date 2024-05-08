@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .cart-item {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .cart-item h3 {
+            margin-top: 0;
+        }
+
+        .cart-item p {
+            margin-bottom: 5px;
+        }
+
+        .total-price {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .checkout-btn {
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .checkout-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Your Cart</h2>
+        <% if (cartItems.length === 0) { %>
+            <p>Your cart is empty.</p>
+        <% } else { %>
+            <% for (let i = 0; i < cartItems.length; i++) { %>
+                <div class="cart-item">
+                    <h3>Book ID: <%= cartItems[i].book_id %></h3>
+                    <p>Price: $<%= cartItems[i].price %> | Quantity: <%= cartItems[i].quantity %></p>
+                    <p>Total: $<%= cartItems[i].price * cartItems[i].quantity %></p>
+                </div>
+            <% } %>
+            <p class="total-price">Total Price: $<%= cartItems.reduce((total, item) => total + (item.price * item.quantity), 0) %></p>
+            <form action="/checkout" method="POST">
+                <button class="checkout-btn">Place Order</butto>
+            </form>
+        <% } %>
+    </div>
+</body>
+</html>

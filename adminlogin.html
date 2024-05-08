@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assests/style.css">
+    <title>Admin Login</title>
+    <style>
+        .submit {
+            text-align: center;
+        }
+        .login_header{
+            padding: 25px;
+        }
+
+        .btn {
+            background-color: blue;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+
+        .btn:hover {
+            background-color: lightblue;
+        }
+
+        .input_box {
+            margin-bottom: 20px;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="login_box">
+            <div class="login_header">
+                <span>Admin Login</span>
+            </div>
+            <form action="/admin/login" method="POST">
+                <div class="input_box">
+                    <input type="text" name="Username" class="input-field" required>
+                    <label for="user" class="label">Username</label>
+                </div>
+                <div class="input_box">
+                    <input type="password" name="password" class="input-field" required>
+                    <label for="user" class="label">Password</label>
+                </div>
+                <div class="submit">
+                    <input type="submit" class="btn" value="Login" class="input_submit">
+                </div>
+            </form>
+            <div class="register">
+                <span>Return to:</span>
+                <a href="/login24">User Page</a> |
+                <a href="/login54">Vendor Page</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

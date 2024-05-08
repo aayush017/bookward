@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Added Books</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        li:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        strong {
+            color: #555;
+        }
+        p {
+            text-align: center;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <h1>View Added Books</h1>
+    <% if (addedBooks.length > 0) { %>
+        <ul>
+            <% addedBooks.forEach(book => { %>
+                <li>
+                    <strong>Book ID:</strong> <%= book.book_id %><br>
+                    <strong>Title:</strong> <%= book.book_name %><br>
+                    <strong>Quantity:</strong> <%= book.quantity %><br>
+                    <strong>Added ID:</strong> <%= book.added_by_id %><br>
+                    <strong>Added Type:</strong> <%= book.added_by_type %><br>
+                    <strong>Time:</strong> <%= book.added_at %><br>
+                    <!-- Add more details as needed -->
+                </li>
+            <% }) %>
+        </ul>
+    <% } else { %>
+        <p>No books have been added yet.</p>
+    <% } %>
+</body>
+</html>

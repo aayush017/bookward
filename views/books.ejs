@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View All Books</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        li:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        strong {
+            color: #555;
+        }
+        p {
+            text-align: center;
+            color: #888;
+        }
+        form {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="number"],
+        textarea {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+        button[type="submit"] {
+            padding: 8px 16px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        h3 {
+            margin-top: 20px;
+        }
+        ul.review-list {
+            padding-left: 20px;
+        }
+        ul.review-list li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>View All Books</h1>
+    <% if (books.length > 0) { %>
+        <ul>
+            <% books.forEach(book => { %>
+                <li>
+                    <strong>Book ID:</strong> <%= book.id %><br>
+                    <strong>Title:</strong> <%= book.book_name %><br>
+                    <strong>Price:</strong> <%= book.book_price %><br>
+                    
+                    <form action="/books/<%= book.id %>/reviews" method="post">
+                        <label for="rating-<%= book.id %>">Rating:</label>
+                        <input type="number" name="rating" id="rating-<%= book.id %>" min="1" max="5" required><br>
+                        <label for="comment-<%= book.id %>">Comment:</label>
+                        <textarea name="comment" id="comment-<%= book.id %>" required></textarea><br>
+                        <button type="submit">Submit Review</button>
+                    </form>
+                    
+                    <% if (book.reviews && book.reviews.length > 0) { %>
+                        <h3>Reviews:</h3>
+                        <ul class="review-list">
+                            <% book.reviews.forEach(review => { %>
+                                <li>
+                                    <strong>User:</strong> <%= review.user_id %><br>
+                                    <strong>Rating:</strong> <%= review.rating %><br>
+                                    <strong>Comment:</strong> <%= review.comment %><br>
+                                </li>
+                            <% }) %>
+                        </ul>
+                    <% } else { %>
+                        <p>No reviews yet.</p>
+                    <% } %>
+                </li>
+            <% }) %>
+        </ul>
+    <% } else { %>
+        <p>No books found.</p>
+    <% } %>
+</body>
+</html>

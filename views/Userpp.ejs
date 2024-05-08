@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .user-detail {
+            margin-bottom: 20px;
+        }
+        .user-detail label {
+            display: block;
+            font-weight: bold;
+            color: #666;
+        }
+        .user-detail span {
+            color: #333;
+        }
+        .btn-container {
+            text-align: center;
+        }
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>User Details</h1>
+        <div class="user-detail">
+            <label for="userId">User ID:<%=details[0].user_id%></label>
+            <span id="userId"></span>
+        </div>
+        <div class="user-detail">
+            <label for="userName">User Name:<%=details[0].user_name%></label>
+            <span id="userName"></span>
+        </div>
+        <div class="user-detail">
+            <label for="loyaltyPoints">Loyalty Points: <%=details[0].loyalty_points%></label>
+            <span id="loyaltyPoints"></span>
+        </div>
+        <div class="btn-container">
+            <form action="/orders" method="GET">
+                <button class="btn" onclick="editProfile()">Previous Orders</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
